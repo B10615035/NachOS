@@ -3,6 +3,6 @@
 main()
         {
                 int     n;
-                for (n=11;n<=20;n++)
+                for (n=11;n<=25;n++)
                         PrintInt(n);
         }

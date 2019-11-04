@@ -49,10 +49,10 @@ class Alarm : public CallBackObj {
     ~Alarm() { delete timer; }
     
     void WaitUntil(int x);	// suspend execution until time > now + x
-sleepList _sleepList;
+
   private:
     Timer *timer;		// the hardware timer device
-	
+	sleepList _sleepList;
     void CallBack();		// called when the hardware
 				// timer generates an interrupt
 };

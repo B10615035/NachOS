@@ -136,15 +136,7 @@ PrintInt:
 	addiu   $2,$0,SC_PrintInt
 	syscall
 	j       $31
-	.end    PrintIn
-
-/* dummy function to keep gcc happy */
-        .globl  __main
-        .ent    __main
-__main:
-        j       $31
-        .end    __main
-
+	.end    PrintInt
 
 	.globl  Sleep
         .ent    Sleep
@@ -153,4 +145,11 @@ Sleep:
         syscall
         j       $31
         .end    Sleep
+
+/* dummy function to keep gcc happy */
+        .globl  __main
+        .ent    __main
+__main:
+        j       $31
+        .end    __main
 

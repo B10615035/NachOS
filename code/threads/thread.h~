@@ -103,8 +103,6 @@ class Thread {
     
     void CheckOverflow();   	// Check if thread stack has overflowed
     void setStatus(ThreadStatus st) { status = st; }
-	void setStartTime(int t)	{startTime = t;}
-    int getStartTime()		{return startTime;}
     void setBurstTime(int t)	{burstTime = t;}
     int getBurstTime()		{return burstTime;}
     void setPriority(int t)	{priority = t;}

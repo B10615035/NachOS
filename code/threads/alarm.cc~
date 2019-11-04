@@ -83,7 +83,7 @@ void sleepList::PutToSleep(Thread*t, int x) {
 IntStatus oldLevel = kernel->interrupt->SetLevel(IntOff);
     ASSERT(kernel->interrupt->getLevel() == IntOff);
     _threadlist.push_back(sleepThread(t, _current_interrupt + x));
-	if(kernel->scheduler->getSchedulerType()!=SRTF)
+	if(scheduler->getSchedulerType()!=SRTF)
     		t->Sleep(false);
 kernel->interrupt->SetLevel(oldLevel);
 }

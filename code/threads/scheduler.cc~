@@ -68,8 +68,8 @@ Scheduler::Scheduler(SchedulerType type)
     	case FIFO:
 		readyList = new SortedList<Thread *>(FIFOCompare);
 		break;
-	case SRTF:
-		readyList = new SortedList<Thread *>(SJFCompare);
+	case FIFO:
+		readyList = new SortedList<Thread *>(FIFOCompare);
 		break;
    	}
 	toBeDestroyed = NULL;
