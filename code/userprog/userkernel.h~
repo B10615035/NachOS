@@ -21,11 +21,16 @@ class UserProgKernel : public ThreadedKernel {
   public:
     UserProgKernel(int argc, char **argv);
 				// Interpret command line arguments
-    ~UserProgKernel();	// deallocate the kernel
-    void Initialize();	// initialize the kernel 
-    void Run();	// do kernel stuff 
-    void SelfTest();// test whether kernel is working
+    ~UserProgKernel();		// deallocate the kernel
+
+    void Initialize();		// initialize the kernel 
+
+    void Run();			// do kernel stuff 
+
+    void SelfTest();		// test whether kernel is working
+
 	SynchDisk *vm_Disk;
+
 // These are public for notational convenience.
     Machine *machine;
     FileSystem *fileSystem;

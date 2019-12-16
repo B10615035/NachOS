@@ -21,10 +21,11 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
+
 #include "copyright.h"
 #include "utility.h"
 #include "translate.h"
-
+#include "vector"
 // Definitions related to the size, and format of user memory
 
 const unsigned int PageSize = 128; 		// set the page size equal to
@@ -90,10 +91,10 @@ class Machine {
     Machine(bool debug);	// Initialize the simulation of the hardware
 				// for running user programs
     ~Machine();			// De-allocate the data structures
-
 // Routines callable by the Nachos kernel
     void Run();	 		// Run a user program
-
+	int replace_type;
+	void set_replace(int replace);
     int ReadRegister(int num);	// read the contents of a CPU register
 
     void WriteRegister(int num, int value);
@@ -126,12 +127,19 @@ class Machine {
 // Thus the TLB pointer should be considered as *read-only*, although 
 // the contents of the TLB are free to be modified by the kernel software.
 
-    TranslationEntry *tlb;		// this pointer should be considered 
+    TranslationEntry *tlb;	// this pointer should be considered 
 					// "read-only" to Nachos kernel code
 
     TranslationEntry *pageTable;
     unsigned int pageTableSize;
     bool ReadMem(int addr, int size, int* value);
+	TranslationEntry *main_tab[NumPhysPages];
+	bool usedPhyPage[NumPhysPages];
+    bool usedvirPage[NumPhysPages];
+	int fifo;
+	std::vector<int>LRU;
+    int sector_number;
+    
   private:
 
 // Routines internal to the machine simulation -- DO NOT call these directly

@@ -288,9 +288,9 @@ Machine::Translate(int virtAddr, int* physAddr, int size, bool writing)
     }
     entry->use = TRUE;		// set the use, dirty bits
 
-	for(int i=0; i<LRU.size(); i++){
-		if(LRU[i]==entry->physicalPage){
-			LRU.erase(LRU.begin()+i);
+	for(int x=0; x<LRU.size(); x++){
+		if(LRU[x]==entry->physicalPage){
+			LRU.erase(LRU.begin()+x);
 			LRU.push_back(entry->physicalPage);
 			break;
 		}

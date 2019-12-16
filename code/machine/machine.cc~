@@ -97,7 +97,7 @@ Machine::~Machine()
 //	"badVaddr" -- the virtual address causing the trap, if appropriate
 //----------------------------------------------------------------------
 
-void Machine::set_replace(int replace){
+void set_replace(int replace){
     replace_type=replace;
 }
 
